@@ -1,0 +1,359 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap");
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+}
+
+img,
+figure,
+picture {
+    max-width: 100%;
+    display: block;
+    height: auto;
+}
+
+h1,
+h2 {
+    margin-top: 20px;
+    margin-bottom: 20px;
+
+}
+
+p {
+    margin-bottom: 10px;
+    font-size: large;
+}
+
+body {
+    display: grid;
+    grid-template-columns: 60% 40%;
+    grid-template-rows: 10% 82% 8%;
+    grid-template-areas:
+        "header header"
+        "main sidebar-right"
+        "footer footer";
+}
+
+body article,
+.conteiner {
+    margin: 2rem;
+}
+
+header {
+    grid-area: header;
+    background-color: rgb(21, 118, 170);
+    color: white;
+    padding-left: 50px;
+    padding-top: 30px;
+    padding-bottom: 200px;
+}
+
+
+nav {
+    overflow: hidden;
+    background-color: rgb(21, 118, 170);
+    align-items: center;
+}
+
+
+ul {
+    position: relative;
+    left: 45vh;
+    display: inline-flex;
+    background-color: rgb(21, 118, 170);
+    overflow: hidden;
+    margin-top: 10px;
+}
+
+
+li {
+    list-style: none;
+    position: relative;
+    transition: 0.10s;
+    /* το delay στο hover*/
+    margin-bottom: 10px;
+}
+
+li::after {
+    position: absolute;
+    content: "";
+    width: 100%;
+    height: 3px;
+    top: 100%;
+    left: 0;
+    transition: transform 0.5s;
+    transform: scaleX(0);
+    transform-origin: center;
+    background-color: rgb(255, 255, 255);
+}
+
+
+li:hover {
+    color: #ffffff;
+}
+
+li:hover::after {
+    transform: scaleX(1);
+    transform-origin: center;
+}
+
+
+a {
+    padding: 15px;
+    display: block;
+    text-decoration: none;
+    color: white;
+    font-size: large;
+}
+
+main {
+    /* grid-row:2; */
+    /* grid-column:1; */
+    grid-area: main;
+}
+
+main li {
+    margin: 10px;
+}
+
+section {
+    background-color: rgb(209, 220, 237);
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+    margin: 40px;
+    padding: 20px;
+}
+
+section>h2 {
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+section>ol {
+    margin-left: 20px;
+}
+
+section p {
+    text-align: justify;
+}
+
+.conteiner {
+    grid-area: sidebar-right;
+}
+
+.box-FAR {
+    background-color: rgb(128, 189, 236);
+    overflow: hidden;
+    margin-left: 1rem;
+    margin-top: 4rem;
+    margin-bottom: 1rem;
+    margin-right: 1rem;
+    text-align: center;
+    align-items: center;
+    color: rgb(8, 43, 56);
+    font-size: large;
+    border-radius: 2rem;
+    height: 240px;
+    width: 600px
+}
+
+.box-FAR>button {
+    width: 50%;
+    height: 50px;
+    background: white;
+    border: none;
+    outline: none;
+    border-radius: 40px;
+    box-shadow: 0 0 10px black;
+    cursor: pointer;
+    font-size: 16px;
+    color: #333;
+    font-weight: 600;
+}
+
+.box-FAR h2 {
+    margin-top: 2rem;
+}
+
+
+
+#xartis-jpg {
+    position: relative;
+    top: 3rem;
+    left: -1rem
+}
+
+#xartis-jpg img {
+    border-radius: 1rem;
+}
+
+
+footer {
+    grid-area: footer;
+    background-color: rgb(21, 118, 170);
+    color: white;
+    padding-top: 30px;
+    padding-bottom: 115px;
+
+}
+
+footer p {
+    text-align: center;
+    padding: 10px;
+}
+
+footer a {
+    text-decoration: none;
+    color: rgb(255, 255, 255);
+
+}
+
+footer i {
+    position: relative;
+    left: 50%;
+    margin-block: 10px;
+}
+
+#arrow {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    width: 50px;
+    height: 50px;
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    line-height: 50px;
+    font-size: 24px;
+    cursor: pointer;
+    border-radius: 50%;
+    scroll-behavior: smooth;
+}
+
+@media screen and (max-width: 480px) {
+
+    /*mobile phone*/
+    body {
+        display: grid;
+        grid-template-rows: fit-content(300px) fit-content(300px) fit-content(300px) fit-content(300px);
+        grid-template-columns: 100%;
+        grid-auto-rows: fit-content(350px);
+        grid-column-gap: 1rem;
+        grid-row-gap: 1rem;
+        grid-template-areas:
+            "header"
+            "main"
+            "sidebar-right"
+            "footer";
+        padding-bottom: 10px;
+    }
+
+
+    nav {
+        /* overflow: hidden; */
+        background-color: rgb(21, 118, 170);
+        overflow: auto;
+
+
+        ul {
+            display: none;
+        }
+
+        .hamb-label {
+            position: relative;
+            width: 64px;
+            cursor: pointer;
+            float: right;
+            padding: 20px;
+        }
+
+        .hamb-line {
+            background: white;
+            display: block;
+            height: 2px;
+            position: absolute;
+            width: 24px;
+            transition: all 0.1s ease;
+
+            &.line1 {
+                top: 10px;
+            }
+
+            &.line2 {
+                top: 18px;
+            }
+
+            &.line3 {
+                top: 26px;
+            }
+        }
+
+        .hamb-checkbox {
+            display: none;
+
+            &:checked {
+                ~ul {
+                    display: none;
+                    position: absolute;
+                    left: 2rem;
+                    display: inline;
+                    background-color: rgb(21, 118, 170);
+                    overflow: hidden;
+                    margin-top: 4rem;
+                    height: 100%;
+                    display: block;
+                    clear: right;
+                }
+            }
+
+            ~hamb-label {
+                .line1 {
+                    transform: rotate(45deg);
+                    top: 18px;
+                }
+
+                .line2 {
+                    background-color: transparent;
+                }
+
+                .line3 {
+                    transform: rotate(-45deg);
+                    top: 18px;
+                }
+            }
+        }
+    }
+
+    section {
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .box-FAR {
+        width: auto;
+    }
+}
+
+
+
+
+
+
+@media screen and (min-width: 481px) {
+
+    /*tablet*/
+    nav {
+        .hamb-label {
+            display: none;
+        }
+
+        ul {
+            display: inline-flex;
+        }
+    }
+}

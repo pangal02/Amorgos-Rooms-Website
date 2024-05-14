@@ -8,7 +8,12 @@
 }
 
 body {
-    display: flex;
+    display: grid;
+    grid-template-rows: 5%;
+    grid-template-columns: 95%;
+    grid-template-areas: 
+    "header"
+    "wrapper";
     justify-content: center;
     align-items: center;
     min-height: 100vh;
@@ -18,6 +23,7 @@ body {
 }
 
 .wrapper {
+    grid-area: wrapper;
     width: 420px;
     background: transparent;
     border: 2px solid rgba(255, 255, 255, .2);
@@ -26,6 +32,8 @@ body {
     color: #ffffff;
     border-radius: 10px;
     padding: 30px 40px;
+    position: relative;
+    left:40%
 }
 
 .wrapper h1 {
@@ -114,4 +122,81 @@ body {
 
 .register-link p a:hover{
     text-decoration: underline;
+}
+
+@media(max-width: 600px){
+    body{
+        margin: 10px;
+    }
+}
+
+
+header{
+    grid-area: header;
+    background-color: rgb(21, 118, 170);
+    color: white;
+    padding-left: 50px;
+    padding-top: 30px;
+}
+header h2{
+    margin-top: 3rem;
+}
+
+
+nav{
+    overflow: hidden;
+    background-color: rgb(21, 118, 170);
+}
+
+menu{
+    align-items: center;
+}
+
+.menu ul {
+    position: relative;
+    left: 45vh;
+    display: inline-flex;
+    background-color: rgb(21, 118, 170);
+    overflow: hidden;
+    margin-top: 10px;
+}
+
+
+.menu li {
+    list-style: none;
+    position: relative;
+    transition: 0.10s; /* το delay στο hover*/
+    margin-bottom: 10px;
+}
+
+.menu li::after{
+    position: absolute;
+    content:  "";
+    width: 100%;
+    height: 3px;
+    top: 100%;
+    left: 0;
+    transition: transform 0.5s;
+    transform: scaleX(0);
+    transform-origin: center;
+    background-color: rgb(255, 255, 255);
+}
+
+
+.menu li:hover {
+    color: #ffffff;
+}
+
+.menu li:hover::after{
+    transform: scaleX(1);
+    transform-origin: center;
+}
+
+
+.menu a {
+    padding: 15px;
+    display: block;
+    text-decoration: none;
+    color: white;
+    font-size: large;
 }
