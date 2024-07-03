@@ -1,0 +1,101 @@
+/* General Styles */
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f0f8ff;
+    color: #333;
+    margin: 0;
+    padding: 0;
+}
+
+/* Header */
+header {
+    background-color: rgb(21, 118, 170);
+    color: white;
+    padding: 20px;
+    text-align: center;
+}
+
+header h1 {
+    margin: 0;
+    font-size: 2em;
+}
+
+/* Main Content */
+main {
+    padding: 20px;
+}
+
+/* Form Styles */
+form {
+    background-color: white;
+    padding: 20px;
+    margin-bottom: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Labels and Inputs */
+form label {
+    display: block;
+    font-size: 1.1em;
+    margin-bottom: 5px;
+}
+
+form input[type="text"],
+form input[type="email"],
+form input[type="file"] {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+
+/* Submit Button */
+form input[type="submit"] {
+    background-color: rgb(21, 118, 170);
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1em;
+}
+
+form input[type="submit"]:hover {
+    background-color: rgb(21, 118, 170);
+}
+
+/* Checkbox */
+form input[type="checkbox"] {
+    margin-left: 10px;
+}
+
+/* Section Titles */
+form h3 {
+    font-size: 1.5em;
+    margin-top: 0;
+}
+
+/* Mandatory Fields Note */
+form h6 {
+    color: #888;
+    font-size: 0.9em;
+}
+
+/* Media Queries for Responsive Design */
+@media (max-width: 600px) {
+    header h1 {
+        font-size: 1.5em;
+    }
+
+    form {
+        padding: 10px;
+    }
+
+    form label,
+    form input[type="submit"] {
+        font-size: 1em;
+    }
+}

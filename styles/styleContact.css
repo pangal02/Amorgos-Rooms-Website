@@ -1,75 +1,183 @@
-@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap");
-
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: "Poppins", sans-serif;
 }
 
-/* Body styling */
-body {
-    font-family: Arial, sans-serif;
+body 
+{
+    font-family: 'Arial', sans-serif;
     line-height: 1.6;
-    padding: 20px;
-    background-color: #f4f4f4;
+    color: #333;
+    background-color: #006699;
 }
 
-/* Form styling */
-form {
-    max-width: 500px;
-    margin: 20px auto;
-    padding: 20px;
-    background: #fff;
-    border-radius: 8px;
+nav ul 
+{
+    list-style: none;
+    display: flex;
+    justify-content: center;
 }
 
-/* Input and textarea styling */
-input[type="text"],
-input[type="email"],
-input[type="tel"],
-input[type="number"],
-textarea {
-    width: 100%;
-    padding: 10px;
-    margin-bottom: 10px;
-    border: 1px solid #ddd;
-    border-radius: 4px;
+nav ul li 
+{
+    margin: 0 1rem;
 }
 
-/* Radio button and checkbox styling */
-input[type="radio"],
-input[type="checkbox"] {
-    margin-right: 5px;
-}
-
-/* Button styling */
-button {
-    display: inline-block;
-    padding: 10px 20px;
-    cursor: pointer;
-    background: #333;
+nav ul li a 
+{
     color: #fff;
-    border: none;
+    text-decoration: none;
+    font-size: 1.2rem;
+    font-weight: bold;
+}
+
+nav ul li a:hover 
+{
+    text-decoration: underline;
+}
+
+main
+{
+    padding: 2rem;
+    text-align: left;
+    background-color: rgba(255, 255, 255, 0.9);
+    border-radius: 10px;
+    margin: 0 auto;
+    max-width: 800px;
+}
+
+.contact-form 
+{
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.contact-form h2 
+{
+    margin-bottom: 1.5rem;
+}
+
+.contact-form label 
+{
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: bold;
+}
+
+.contact-form input[type="text"],
+.contact-form input[type="email"],
+.contact-form input[type="tel"],
+.contact-form input[type="number"],
+.contact-form select,
+.contact-form textarea 
+{
+    width: 100%;
+    padding: 0.5rem;
+    font-size: 1rem;
+    margin-bottom: 1rem;
+    border: 1px solid #ccc;
     border-radius: 5px;
 }
 
-/* Label styling */
-label {
-    display: block;
-    margin-bottom: 5px;
+.contact-form textarea 
+{
+    height: 100px;
 }
 
-/* Utility classes */
-.flex {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
+.contact-form button[type="submit"] 
+{
+    padding: 0.5rem 1rem;
+    font-size: 1rem;
+    font-weight: bold;
+    background-color: #006699;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
 }
 
-/* Responsive design */
-@media (max-width: 600px) {
-    form {
-        padding: 10px;
+.contact-form button[type="submit"]:hover 
+{
+    background-color: #00557e;
+}
+
+footer{
+    color: white;
+}
+
+/* Media Queries */
+
+/* For mobile phones */
+@media (max-width: 480px) {
+    header {
+        padding: 0.5rem 1rem;
+        max-width: 100%;
+    }
+
+    nav ul {
+        flex-direction: column;
+        padding: 0.5rem;
+    }
+
+    nav ul li {
+        margin-bottom: 0.5rem;
+    }
+
+    main {
+        padding: 1rem;
+    }
+
+    .contact-form {
+        padding: 1rem;
+    }
+}
+
+/* For tablets */
+@media (max-width: 768px) {
+    header {
+        padding: 0.75rem 1.5rem;
+    }
+
+    nav ul {
+        flex-direction: column;
+        padding: 1rem;
+    }
+
+    nav ul li {
+        margin-bottom: 0.75rem;
+    }
+
+    main {
+        padding: 1.5rem;
+    }
+
+    .contact-form {
+        padding: 1.5rem;
+    }
+}
+
+/* For laptops (15.6") */
+@media (min-width: 769px) and (max-width: 1366px) {
+    header {
+        padding: 1rem 2rem;
+        max-width: 80%;
+    }
+
+    nav ul {
+        flex-direction: row;
+        padding: 1rem;
+    }
+
+    nav ul li {
+        margin-right: 1rem;
+    }
+
+    main {
+        padding: 2rem;
+    }
+
+    .contact-form {
+        padding: 2rem;
     }
 }

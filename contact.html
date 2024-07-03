@@ -1,68 +1,110 @@
 <!DOCTYPE html>
 <html lang="el">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ΕΠΙΚΟΙΝΩΝΗΣΤΕ ΜΑΖΙ ΜΑΣ</title>
-    <link rel="stylesheet" type="text/css" href="/styles/styleContact.css"
+    <title>Επικοινωνία</title>
+    <link rel="stylesheet" type="text/css" href="styles/styleContact.css">
+    <script src="validateForm.js" defer></script>
 </head>
-
 <body>
+    <header>
+        <h1>Επικοινωνήστε μαζί μας</h1>
+    </header>
     <main>
-        <form>
-            <label for="firstName">*Όνομα:</label>
-            <input type="text" id="firstName" name="firstName" required>
-
-            <label for="lastName">*Επίθετο:</label>
-            <input type="text" id="lastName" name="lastName" required>
-
-            <label for="email">*email:</label>
-            <input type="email" id="email" name="email" required>
-
-            <label for="phone">*Τηλέφωνο επικοινωνίας:</label>
-            <input type="text" id="phone" name="phone" required>
-
-            <label for="numOfRooms">*Αριθμός δωματίων:</label>
-            <input type="number" id="numOfRooms" name="numOfRooms" value="1" required>
-
-            <label for="adults">*Αριθμός ατόμων:</label>
-            <ul>
-                <li>
-                    <label for="adults">Ενήλικες:</label>
-                    <input type="number" id="adults" name="adults" value="2" required>
-                </li>
-                <li>
-                    <label for="minors">Ανήλικοι:</label>
-                    <input type="number" id="minors" name="minors" value="0" required>
-                </li>
-            </ul>
-
-            <label for="ArrivalDate">*Ημερομηνία άφιξης:</label>
-            <input type="date" id="ArrivalDate" name="ArrivalDate" required>
-
-            <label for="departureDate">*Ημερομηνία άφιξης:</label>
-            <input type="date" id="ArrivalDate" name="ArrivalDate" required>
-
-            <label for="flexibleDate">*Ευέλικτες ημερομηνίες:</label>
-            <label type="cbYES">Ναι</label>
-            <input type="checkbox" id="cbYES" name="flexibleDate" value="yes"> <!--required -->
-            <label for="cbNO">Όχι</label>
-            <input type="checkbox" id="cbNO" name="flexibleDate" value="no" checked>
-
-            <label for="pet">*Κατοικίδιο</label>
-            <input type="radio" id="no" name="pet" value="no" checked>
-            <label for="no">Όχι</label>
-            <input type="radio" id="dog" name="pet" value="dog">
-            <label for="dog">Σκύλος</label>
-            <input type="radio" id="cat" name="pet" value="cat">
-            <label for="cat">Γάτα</label>
-
-            <labe for="textArea">Σχόλια/Ερωτήσεις</labe>
-            <textarea id="textArea" name="textArea" rows="4" cols="50" placeholder="Εισαγωγή σχολίων..."></textarea>
-            <h6>*Υποχρεωτικά πεδία</h6>
-        </form>
+      <form id="reservationForm"  method="post">
+        <label for="name">Όνομα:</label>
+        <input type="text" id="name" name="name" ><br>
+    
+        <label for="surname">Επίθετο:</label>
+        <input type="text" id="surname" name="surname" ><br>
+    
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" ><br>
+    
+        <label for="phone">Τηλέφωνο:</label>
+        <input type="tel" id="phone" name="phone"  ><br>
+    
+        <label for="rooms">Συνολικός Αριθμός Δωματίων:</label>
+        <input type="number" id="rooms" name="rooms" value="1" ><br>
+    
+        <label for="adults">Ενήλικες:</label>
+        <input type="number" id="adults" name="adults" value="2" ><br>
+    
+        <label for="children">Ανήλικοι:</label>
+        <input type="number" id="children" name="children" value="0" ><br>
+    
+        <label for="arrivalDate">Ημερομηνία άφιξης:</label>
+        <input type="date" id="arrivalDate" name="arrivalDate" min="yyyy-mm-dd" ><br>
+    
+        <label for="departureDate">Ημερομηνία αναχώρησης:</label>
+        <input type="date" id="departureDate" name="departureDate" min="yyyy-mm-dd" ><br>
+    
+        <label for="pet">Κατοικίδιο:</label>
+        <select id="pet" name="pet">
+            <option value="Όχι" selected>Όχι</option>
+            <option value="Ναι">Ναι</option>
+        </select><br>
+    
+        <input type="submit" value="Αποστολή Κράτησης">
+    </form>
+    
     </main>
 </body>
-
 </html>
+
+<script>
+  document.getElementById('reservationForm').addEventListener('submit', function(event) {
+      event.preventDefault(); // Ακύρωση της προεπιλεγμένης συμπεριφοράς της φόρμας
+
+      // Ελέγχος της φόρμας πριν την υποβολή
+      if (!validateForm()) {
+          return;
+      }
+
+      // Αν όλα τα πεδία είναι έγκυρα, αποστολή της φόρμας
+      this.submit();
+  });
+
+  function validateForm() {
+      var name = document.getElementById('name').value;
+      var surname = document.getElementById('surname').value;
+      var email = document.getElementById('email').value;
+      var phone = document.getElementById('phone').value;
+      var arrivalDate = document.getElementById('arrivalDate').value;
+      var departureDate = document.getElementById('departureDate').value;
+
+      // Ελέγχος για το όνομα και το επίθετο
+      if (name.length < 2 || surname.length < 2) {
+          alert('Το όνομα και το επίθετο πρέπει να έχουν τουλάχιστον 2 χαρακτήρες.');
+          return false;
+      }
+
+      // Ελέγχος για το email
+      var emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      if (!emailPattern.test(email)) {
+          alert('Παρακαλώ εισάγετε ένα έγκυρο email.');
+          return false;
+      }
+
+      // Ελέγχος για το τηλέφωνο
+      var phonePattern = /^[0-9]{10,15}$/;
+      if (!phonePattern.test(phone)) {
+          alert('Το τηλέφωνο πρέπει να αποτελείται από 10 έως 15 ψηφία.');
+          return false;
+      }
+
+      // Ελέγχος για τις ημερομηνίες άφιξης και αναχώρησης
+      var currentDate = new Date().toISOString().split('T')[0];
+      if (arrivalDate < currentDate) {
+          alert('Η ημερομηνία άφιξης δεν μπορεί να είναι προγενέστερη από την τρέχουσα ημερομηνία.');
+          return false;
+      }
+      if (departureDate <= arrivalDate) {
+          alert('Η ημερομηνία αναχώρησης πρέπει να είναι μεταγενέστερη από την ημερομηνία άφιξης.');
+          return false;
+      }
+
+      return true;
+  }
+</script>

@@ -7,19 +7,15 @@
     font-family: "Poppins", sans-serif;
 }
 
-img,
-figure,
-picture {
+img, figure, picture {
     max-width: 100%;
     display: block;
     height: auto;
 }
 
-h1,
-h2 {
+h1, h2 {
     margin-top: 20px;
     margin-bottom: 20px;
-
 }
 
 p {
@@ -29,16 +25,16 @@ p {
 
 body {
     display: grid;
+    grid-template-rows: auto 1fr auto;
     grid-template-columns: 60% 40%;
-    grid-template-rows: 10% 82% 8%;
     grid-template-areas:
         "header header"
         "main sidebar-right"
         "footer footer";
+    height: 100vh;
 }
 
-body article,
-.conteiner {
+article, .container {
     margin: 2rem;
 }
 
@@ -46,38 +42,42 @@ header {
     grid-area: header;
     background-color: rgb(21, 118, 170);
     color: white;
-    padding-left: 50px;
+    width: 100%;
     padding-top: 30px;
-    padding-bottom: 200px;
 }
 
+header h1 {
+    text-align: center;
+    padding: 0%;
+}
 
-nav {
+header nav {
     overflow: hidden;
     background-color: rgb(21, 118, 170);
     align-items: center;
 }
 
-
-ul {
+header ul {
     position: relative;
-    left: 45vh;
+    left: 13rem;
     display: inline-flex;
     background-color: rgb(21, 118, 170);
     overflow: hidden;
     margin-top: 10px;
 }
 
+header a {
+    color: white;
+}
 
-li {
+header li {
     list-style: none;
     position: relative;
     transition: 0.10s;
-    /* το delay στο hover*/
     margin-bottom: 10px;
 }
 
-li::after {
+header li::after {
     position: absolute;
     content: "";
     width: 100%;
@@ -90,51 +90,49 @@ li::after {
     background-color: rgb(255, 255, 255);
 }
 
-
-li:hover {
+header li:hover {
     color: #ffffff;
 }
 
-li:hover::after {
+header li:hover::after {
     transform: scaleX(1);
     transform-origin: center;
 }
 
-
-a {
+header a {
     padding: 15px;
     display: block;
     text-decoration: none;
-    color: white;
     font-size: large;
 }
 
-main {
-    /* grid-row:2; */
-    /* grid-column:1; */
-    grid-area: main;
+#check {
+    display: none;
 }
 
-main li {
-    margin: 10px;
+.checkBtn {
+    display: none;
+    color: white;
+    font-size: larger;
+}
+
+main {
+    grid-area: main;
+    text-align: left;
 }
 
 section {
     background-color: rgb(209, 220, 237);
-    border-top-left-radius: 20px;
-    border-top-right-radius: 20px;
-    border-bottom-left-radius: 20px;
-    border-bottom-right-radius: 20px;
-    margin: 40px;
+    border-radius: 20px;
+    margin: 20px;
     padding: 20px;
 }
 
-section>h2 {
-    margin-top: 10px;
-    margin-bottom: 10px;
+section > h2 {
+    margin: 10px 0;
 }
 
-section>ol {
+section > ol {
     margin-left: 20px;
 }
 
@@ -142,27 +140,59 @@ section p {
     text-align: justify;
 }
 
-.conteiner {
-    grid-area: sidebar-right;
+.pin-map i {
+    font-size: 20px;
+    margin-right: 10px;
 }
 
-.box-FAR {
+.pin-map p {
+    font-size: larger;
+    margin: 0;
+}
+
+.sidebar-right {
+    grid-area: sidebar-right;
+    background-color: rgb(128, 189, 236);
+    border-radius: 3rem;
+    margin-top: 3rem;
+    margin-right: 3rem;
+    margin-bottom: 3rem;
+}
+
+.sidebar-right .pin-map {
+    align-items: center;
+    position: relative;
+    left: 6rem; /* Adjusted value to move it to the left */
+    top: -0.5rem;
+}
+
+.pin-map {
+    display: inline-flex;
+    background-color: rgb(12, 37, 58);
+    color: #fff;
+    width: auto;
+    border-radius: 5rem;
+    text-align: center;
+    padding: 25px;
+    margin-top: 1rem;
+}
+
+.box {
     background-color: rgb(128, 189, 236);
     overflow: hidden;
-    margin-left: 1rem;
-    margin-top: 4rem;
-    margin-bottom: 1rem;
-    margin-right: 1rem;
+    margin: 2rem;
     text-align: center;
-    align-items: center;
     color: rgb(8, 43, 56);
     font-size: large;
     border-radius: 2rem;
-    height: 240px;
-    width: 600px
+    height: 220px;
+    width: 100%;
+    max-width: 500px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
-.box-FAR>button {
+.box button {
     width: 50%;
     height: 50px;
     background: white;
@@ -176,47 +206,30 @@ section p {
     font-weight: 600;
 }
 
-.box-FAR h2 {
+.box h2 {
     margin-top: 2rem;
 }
-
-
-
-#xartis-jpg {
-    position: relative;
-    top: 3rem;
-    left: -1rem
-}
-
-#xartis-jpg img {
-    border-radius: 1rem;
-}
-
 
 footer {
     grid-area: footer;
     background-color: rgb(21, 118, 170);
     color: white;
-    padding-top: 30px;
-    padding-bottom: 115px;
-
+    padding: 30px;
+    text-align: center;
+    padding-top: 20px;
 }
 
 footer p {
-    text-align: center;
     padding: 10px;
 }
 
 footer a {
     text-decoration: none;
     color: rgb(255, 255, 255);
-
 }
 
 footer i {
-    position: relative;
-    left: 50%;
-    margin-block: 10px;
+    margin-top: 10px;
 }
 
 #arrow {
@@ -228,132 +241,279 @@ footer i {
     background-color: #333;
     color: #fff;
     text-align: center;
-    line-height: 50px;
+    line-height: 40px;
     font-size: 24px;
     cursor: pointer;
     border-radius: 50%;
     scroll-behavior: smooth;
 }
 
-@media screen and (max-width: 480px) {
-
-    /*mobile phone*/
+@media (max-width: 1024px) {
     body {
-        display: grid;
-        grid-template-rows: fit-content(300px) fit-content(300px) fit-content(300px) fit-content(300px);
-        grid-template-columns: 100%;
-        grid-auto-rows: fit-content(350px);
-        grid-column-gap: 1rem;
-        grid-row-gap: 1rem;
+        grid-template-columns: 1fr;
         grid-template-areas:
             "header"
             "main"
             "sidebar-right"
             "footer";
-        padding-bottom: 10px;
     }
 
+    header {
+        padding: 1rem 20px;
+    }
 
-    nav {
-        /* overflow: hidden; */
+    header nav ul {
+        position: fixed;
+        top: 80px;
+        left: -100%;
+        height: 100vh;
+        width: 100%;
         background-color: rgb(21, 118, 170);
-        overflow: auto;
-
-
-        ul {
-            display: none;
-        }
-
-        .hamb-label {
-            position: relative;
-            width: 64px;
-            cursor: pointer;
-            float: right;
-            padding: 20px;
-        }
-
-        .hamb-line {
-            background: white;
-            display: block;
-            height: 2px;
-            position: absolute;
-            width: 24px;
-            transition: all 0.1s ease;
-
-            &.line1 {
-                top: 10px;
-            }
-
-            &.line2 {
-                top: 18px;
-            }
-
-            &.line3 {
-                top: 26px;
-            }
-        }
-
-        .hamb-checkbox {
-            display: none;
-
-            &:checked {
-                ~ul {
-                    display: none;
-                    position: absolute;
-                    left: 2rem;
-                    display: inline;
-                    background-color: rgb(21, 118, 170);
-                    overflow: hidden;
-                    margin-top: 4rem;
-                    height: 100%;
-                    display: block;
-                    clear: right;
-                }
-            }
-
-            ~hamb-label {
-                .line1 {
-                    transform: rotate(45deg);
-                    top: 18px;
-                }
-
-                .line2 {
-                    background-color: transparent;
-                }
-
-                .line3 {
-                    transform: rotate(-45deg);
-                    top: 18px;
-                }
-            }
-        }
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        transition: left 0.5s ease;
     }
 
-    section {
+    #check:checked ~ ul {
+        left: 0;
+    }
+
+    .checkBtn {
+        display: block;
+        position: absolute;
+        top: 15px;
+        right: 15px;
+        font-size: xx-large;
+        cursor: pointer;
+    }
+
+    
+
+    .box {
+        width: 100%;
+    }
+
+    .sidebar-right {
+        padding: 1rem;
         margin-left: auto;
         margin-right: auto;
     }
 
-    .box-FAR {
-        width: auto;
+    .pin-map {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .sidebar-right .pin-map {
+        align-items: center;
+        position: relative;
+        left: 0.1rem; /* Adjusted value to move it to the left */
+        top: -0.75rem;
+    }
+
+    .box {
+        background-color: rgb(128, 189, 236);
+        overflow: hidden;
+        margin: 2rem;
+        text-align: center;
+        color: rgb(8, 43, 56);
+        font-size: large;
+        border-radius: 2rem;
+        height: 220px;
+        width: 100%;
+        max-width: 500px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    
+}
+
+@media (max-width: 912px) {
+    header h1 {
+        font-size: 1.5rem;
+    }
+
+    header nav ul {
+        position: fixed;
+        top: 60px;
+        left: -100%;
+        height: 100vh;
+        width: 100%;
+        background-color: rgb(21, 118, 170);
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        transition: left 0.5s ease;
+    }
+
+    #check:checked ~ ul {
+        left: 0;
+    }
+
+    .checkBtn {
+        display: block;
+        position: absolute;
+        top: 15px;
+        right: 15px;
+        cursor: pointer;
+    }
+
+    .box {
+        width: 100%;
+        margin: 0 auto;
+    }
+
+    .sidebar-right {
+        padding: 1rem;
+    }
+
+    .pin-map {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .sidebar-right .pin-map {
+        align-items: center;
+        position: relative;
+        left: 0.1rem; /* Adjusted value to move it to the left */
+        top: -0.75rem;
+    }
+
+    .box {
+        background-color: rgb(128, 189, 236);
+        overflow: hidden;
+        margin: 2rem;
+        text-align: center;
+        color: rgb(8, 43, 56);
+        font-size: large;
+        border-radius: 2rem;
+        height: 220px;
+        width: 100%;
+        max-width: 500px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    footer {
+        grid-area: footer;
+        background-color: rgb(21, 118, 170);
+        color: white;
+        padding: 30px;
+        text-align: center;
+        padding-top: 20px;
     }
 }
 
+@media (max-width: 800px) {
+    body {
+        grid-template-rows: auto auto auto auto;
+    }
 
+    header h1 {
+        font-size: 1.2rem;
+    }
 
+    .box {
+        height: auto;
+        padding: 1rem;
+    }
 
+    .sidebar-right {
+        margin: 1rem 0;
+    }
 
+    .pin-map {
+        margin-top: 0.5rem;
+    }
 
-@media screen and (min-width: 481px) {
+    .sidebar-right .pin-map {
+        align-items: center;
+        position: relative;
+        left: 0.1rem; /* Adjusted value to move it to the left */
+        top: -0.75rem;
+    }
 
-    /*tablet*/
-    nav {
-        .hamb-label {
-            display: none;
-        }
+    .box {
+        background-color: rgb(128, 189, 236);
+        overflow: hidden;
+        margin: 2rem;
+        text-align: center;
+        color: rgb(8, 43, 56);
+        font-size: large;
+        border-radius: 2rem;
+        height: 220px;
+        width: 100%;
+        max-width: 500px;
+        margin-left: auto;
+        margin-right: auto;
+    }
 
-        ul {
-            display: inline-flex;
-        }
+    footer {
+        grid-area: footer;
+        background-color: rgb(21, 118, 170);
+        color: white;
+        padding: 30px;
+        text-align: center;
+        padding-top: 20px;
+    }
+}
+
+@media (max-width: 600px) {
+    header nav ul {
+        top: 60px;
+    }
+
+    .checkBtn {
+        top: 10px;
+    }
+
+    .box {
+        margin: 1rem;
+        padding: 1rem;
+    }
+
+    .pin-map {
+        margin-top: 0.5rem;
+        padding: 15px;
+    }
+
+    footer {
+        padding-top: 100px;
+    }
+
+    footer p {
+        padding: 5px;
+    }
+
+    .sidebar-right .pin-map {
+        align-items: center;
+        position: relative;
+        left: 0.1rem; /* Adjusted value to move it to the left */
+        top: -0.75rem;
+    }
+
+    .box {
+        background-color: rgb(128, 189, 236);
+        overflow: hidden;
+        margin: 2rem;
+        text-align: center;
+        color: rgb(8, 43, 56);
+        font-size: large;
+        border-radius: 2rem;
+        height: 220px;
+        width: 100%;
+        max-width: 500px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    footer {
+        grid-area: footer;
+        background-color: rgb(21, 118, 170);
+        color: white;
+        padding: 30px;
+        text-align: center;
+        padding-top: 20px;
     }
 }

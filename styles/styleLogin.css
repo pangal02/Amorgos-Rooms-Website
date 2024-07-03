@@ -9,31 +9,30 @@
 
 body {
     display: grid;
-    grid-template-rows: 5%;
+    grid-template-rows: 5% auto;
     grid-template-columns: 95%;
     grid-template-areas: 
-    "header"
-    "wrapper";
+        "header"
+        "wrapper";
     justify-content: center;
     align-items: center;
     min-height: 100vh;
-    background: url('/media/AmorgosLogin1.jpg') no-repeat;
+    background: url('/media/AmorgosLogin1.jpg') no-repeat center center fixed;
     background-size: cover;
-    background-position: center;
 }
 
 .wrapper {
     grid-area: wrapper;
     width: 420px;
-    background: transparent;
-    border: 2px solid rgba(255, 255, 255, .2);
+    background: rgba(255, 255, 255, 0.1); /* Better transparency with background color */
+    border: 2px solid rgba(255, 255, 255, 0.2);
     backdrop-filter: blur(20px);
-    box-shadow: 0 0 10px rgba(0, 0, 0, .2);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
     color: #ffffff;
     border-radius: 10px;
     padding: 30px 40px;
     position: relative;
-    left:40%
+    left: 40%;
 }
 
 .wrapper h1 {
@@ -54,11 +53,11 @@ body {
     background: transparent;
     border: none;
     outline: none;
-    border: 2px solid rgba(255, 255, 255, .2);
+    border: 2px solid rgba(255, 255, 255, 0.2);
     border-radius: 40px;
     font-size: 16px;
     color: #fff;
-    padding: 20px 45px 20px 20px;
+    padding: 0 45px 0 20px;
 }
 
 .input-box input::placeholder {
@@ -108,47 +107,40 @@ body {
     font-weight: 600;
 }
 
-.wrapper .register-link{
+.wrapper .register-link {
     font-size: 14px;
     text-align: center;
     margin: 20px 0 15px;
 }
 
-.register-link p a{
-    color:#fff;
+.register-link p a {
+    color: #fff;
     text-decoration: none;
     font-weight: 600;
 }
 
-.register-link p a:hover{
+.register-link p a:hover {
     text-decoration: underline;
 }
 
-@media(max-width: 600px){
-    body{
-        margin: 10px;
-    }
-}
-
-
-header{
+header {
     grid-area: header;
     background-color: rgb(21, 118, 170);
     color: white;
     padding-left: 50px;
     padding-top: 30px;
 }
-header h2{
+
+header h2 {
     margin-top: 3rem;
 }
 
-
-nav{
+nav {
     overflow: hidden;
     background-color: rgb(21, 118, 170);
 }
 
-menu{
+menu {
     align-items: center;
 }
 
@@ -161,17 +153,16 @@ menu{
     margin-top: 10px;
 }
 
-
 .menu li {
     list-style: none;
     position: relative;
-    transition: 0.10s; /* το delay στο hover*/
+    transition: 0.10s; /* το delay στο hover */
     margin-bottom: 10px;
 }
 
-.menu li::after{
+.menu li::after {
     position: absolute;
-    content:  "";
+    content: "";
     width: 100%;
     height: 3px;
     top: 100%;
@@ -182,16 +173,14 @@ menu{
     background-color: rgb(255, 255, 255);
 }
 
-
 .menu li:hover {
     color: #ffffff;
 }
 
-.menu li:hover::after{
+.menu li:hover::after {
     transform: scaleX(1);
     transform-origin: center;
 }
-
 
 .menu a {
     padding: 15px;
@@ -199,4 +188,40 @@ menu{
     text-decoration: none;
     color: white;
     font-size: large;
+}
+
+@media(max-width: 481px) {
+    body {
+        grid-template-rows: auto;
+        grid-template-columns: auto;
+        grid-template-areas: 
+            "wrapper";
+        justify-content: center;
+        align-items: center;
+    }
+
+    .wrapper {
+        width: 90%;
+        left: 0;
+        top: 0;
+        margin: 0 auto;
+    }
+}
+
+@media(max-width: 890px) {
+    body {
+        grid-template-rows: auto;
+        grid-template-columns: auto;
+        grid-template-areas: 
+            "wrapper";
+        justify-content: center;
+        align-items: center;
+    }
+
+    .wrapper {
+        width: 90%;
+        left: 0;
+        top: 0;
+        margin: 0 auto;
+    }
 }
